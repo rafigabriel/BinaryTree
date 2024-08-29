@@ -115,6 +115,27 @@ public class BinaryTree {
         }
     }
 
+    public Node search(int value){
+        return search(root, value);
+    }
+
+    private Node search(Node current, int value){
+        if(current == null){
+            return null;
+        }
+
+        if(current.getValue() == value){
+            return current;
+        }
+
+        if(current.getValue() < value){
+            return search(current.getRight(), value);
+        }
+        if(current.getValue() > value){
+            return search(current.getLeft(), value);
+        }
+    }
+
     public Node findFatherNode(Node current, int value) {
         if (current == null) {
             return null;
